@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 def canny(lane_img):
     gray = cv2.cvtColor(lane_img, cv2.COLOR_RGB2GRAY)
     blur = cv2.GaussianBlur(gray, (5,5), 0)
-    canny = cv2.Canny(blur, 50, 150)
+    canny = cv2.Canny(blur, 40, 150)
     return canny
 
 def display_lines(image, lines):
@@ -13,7 +13,7 @@ def display_lines(image, lines):
     if lines is not None:
         for line in lines:
             x1, y1, x2, y2 = line.reshape(4)
-            cv2.line(line_image, (x1,y1), (x2,y2), (255,0,0),10)
+            cv2.line(line_image, (x1,y1), (x2,y2), (255,255,0),10)
     return line_image
 
 def region_of_interest(image):
